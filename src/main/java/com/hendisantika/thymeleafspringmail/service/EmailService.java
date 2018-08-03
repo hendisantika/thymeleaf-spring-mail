@@ -30,15 +30,15 @@ public class EmailService {
     private static TemplateEngine templateEngine;
     private static Context context;
 
-    @Autowired
+    //    @Autowired
     private JavaMailSender emailSender;
 
     private Logger LOG = LoggerFactory.getLogger(EmailService.class);
 
-//    @Autowired
-//    public void setEmailSender(JavaMailSender emailSender) {
-//        this.emailSender = emailSender;
-//    }
+    @Autowired
+    public void setEmailSender(JavaMailSender emailSender) {
+        this.emailSender = emailSender;
+    }
 
     private static void initializeTemplateEngine() {
 
@@ -53,7 +53,7 @@ public class EmailService {
 
     public void prepareAndSendEmail() throws MessagingException {
         String htmlTemplate = "templates/emailTemplate";
-        String mailTo = "email@example.com";
+        String mailTo = "hendisantika@yahoo.co.id";
         initializeTemplateEngine();
 
         context.setVariable("sender", "Thymeleaf Email");
